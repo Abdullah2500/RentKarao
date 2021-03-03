@@ -1,10 +1,9 @@
 import React from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
 import "./menu.css";
 import { Menu } from "antd";
 import {
-  HomeOutlined,
   AppstoreOutlined,
   SafetyCertificateOutlined,
   UserAddOutlined,
@@ -16,27 +15,24 @@ import {
 import { Link } from "react-router-dom";
 // import {BrowserRouter, Route, Switch} from "react-router-dom";
 
-class Menuu extends React.Component {
-  state = {
-    current: "mail",
-  };
+const Menuu = () => {
+  // state = {
+  //   current: "mail",
+  // };
 
-  handleClick = (e) => {
-    console.log("click ", e);
-    this.setState({ current: e.key });
-  };
+  // const handleClick = (e) => {
+  //   console.log("click ", e);
+  //   this.setState({ current: e.key });
+  // };
 
-  render() {
-    const { current } = this.state;
+ 
+    // const { current } = this.state;
     return (
       <Menu
-        onClick={this.handleClick}
-        selectedKeys={[current]}
+        // onClick={handleClick}
+        // selectedKeys={[current]}
         mode="horizontal"
       >
-        <Menu.Item key="home" icon={<HomeOutlined />}>
-          <Link to="/">Home</Link>
-        </Menu.Item>
 
         <Menu.Item key="places" icon={<AppstoreOutlined />}>
           <Link to="/places">Places to Stay</Link>
@@ -74,6 +70,5 @@ class Menuu extends React.Component {
       </Menu>
     );
   }
-}
 
 export default Menuu;
