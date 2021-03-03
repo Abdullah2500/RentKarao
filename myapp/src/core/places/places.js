@@ -6,7 +6,7 @@ import { Form, Input, Button, DatePicker } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
 
-const Home = () => {
+const Places = () => {
 
     const formRef = React.createRef();
 
@@ -60,4 +60,4 @@ const Home = () => {
     );
     }
 
-export default Home;
+export default Places;
