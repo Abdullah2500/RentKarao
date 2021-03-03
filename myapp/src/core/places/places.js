@@ -27,35 +27,37 @@ const Places = () => {
     };
 
     return (
+      <div className="background">
       
         <Form 
-        layout="inline" 
-        ref={formRef} 
-        name="control-ref" 
-        onFinish={onFinish}
-        id="form_pad"
-        >
-        <Form.Item 
-          name="location"
-          label="Location: "
-         >
-          <Input id="form_loc_input" placeholder="Where are you going?"/>
-        </Form.Item>
+          layout="inline" 
+          ref={formRef} 
+          name="control-ref" 
+          onFinish={onFinish}
+          className="formStyle"
+          >
+          <Form.Item 
+            name="location"
+            label="Location: "
+          >
+            <Input placeholder="Where are you going?"/>
+          </Form.Item>
 
-	    <Form.Item label="Check in">
-            <DatePicker onChange={onDateInChange} />
-        </Form.Item>
+        <Form.Item label="Check in">
+              <DatePicker onChange={onDateInChange} />
+          </Form.Item>
 
-        <Form.Item label="Check out">
-            <DatePicker onChange={onDateOutChange} />
-        </Form.Item>
+          <Form.Item label="Check out">
+              <DatePicker onChange={onDateOutChange} />
+          </Form.Item>
 
-        <Form.Item >
-          <Button type="primary" htmlType="submit" icon={<SearchOutlined />} onSubmit={handleSubmit}>
-            Submit
-          </Button>
-        </Form.Item>
-      </Form>
+          <Form.Item >
+            <Button type="primary" htmlType="submit" icon={<SearchOutlined />} onSubmit={handleSubmit}>
+              Submit
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
 
     );
     }

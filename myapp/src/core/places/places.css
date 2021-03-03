@@ -1,8 +1,19 @@
-#form_pad{
-    padding-top: 50px;
-    padding-left: 250px;
+.background{
+    text-align: center !important;
+    background-image: url("https://cdn.pixabay.com/photo/2015/09/28/21/32/the-palm-962785_960_720.jpg");
+    position: fixed;
+    min-width: 100%;
+    min-height: 60%;
+    background-size: cover;
+    background-position: center;
+    color: white;
 }
 
-#form_loc_input{
-    padding-left: 3px;
+.formStyle{
+    background-color: thistle;
+    padding: 10px;
+    margin: 40px;
+    margin-top: 150px;
+    margin-left: 230px;
+    float: left;
 }
