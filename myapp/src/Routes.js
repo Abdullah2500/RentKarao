@@ -11,20 +11,20 @@ import Signin from './user/signin/Signin';
 
 const Routes = () => {
 
-    return (
-      <BrowserRouter>
-      <Menuu/>
-        <Switch>
-          <Route path="/" exact component={Places} />
-          <Route path="/places" exact component={Places} />
-          <Route path="/signup" exact component ={Signup} />
-          <Route path="/signin" exact component ={Signin} />
-          <Route path="/provider" exact component ={Provider} />
-          <Route path="/experiences" exact component ={Experience} />
-         
-        </Switch>
-      </BrowserRouter>
-    );
-  }
+  return (
+    <BrowserRouter>
+      <Menuu />
+      <Switch>
+        <Route path="/" exact component={Signin} />
+        <Route path="/places" exact component={Places} />
+        <Route path="/signup" exact component={Signup} />
+        <Route path="/signin" exact component={Signin} />
+        <Route path="/provider" exact component={Provider} />
+        <Route path="/experiences" exact component={Experience} />
+
+      </Switch>
+    </BrowserRouter>
+  );
+}
 
 export default Routes;

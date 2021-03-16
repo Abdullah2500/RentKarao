@@ -2,6 +2,8 @@ import { Form, Input, InputNumber, Button, Checkbox, Col, Row } from 'antd';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './signup.css';
+import Signin from '../signin/Signin';
+
 const layout = {
   labelCol: {
     span: 8,
@@ -29,38 +31,48 @@ const validateMessages = {
 
 const Signup = () => {
 
-  // const [isSignup, setSignup] = useState("");
-
   const onFinish = (values) => {
     console.log(values);
 
     axios.post('http://localhost:3000/users/register', {
-      name: this.name,
-      email: this.email,
-      student_id: this.student_id,
-      password: this.password
+      name: values.name,
+      email: values.email,
+      student_id: values.student_id,
+      password: values.password
     })
       .then((response) => {
         console.log(response);
+        if (response.status === 200) {
+          alert("User Signed Up Successfully! Go to Sign in Page");
+        }
+        // else {
+        //   alert("User registered with the email already!");
+        // }
 
       }, (error) => {
         console.log(error);
+        alert("User already Signed Up");
       });
-
   };
 
   return (
 
     <Row>
       <Col span={8} offset={7}>
-        <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
+        <Form
+          {...layout}
+          name="nest-messages"
+          onFinish={onFinish}
+          validateMessages={validateMessages}
+          initialValues={{ remember: true }}
+        >
           <Form.Item
             wrapperCol={{ ...layout.wrapperCol, offset: 13 }}
           >
             <h1>Sign Up</h1>
           </Form.Item>
           <Form.Item
-            name={['user', 'name']}
+            name='name'
             label="Name"
             rules={[
               {
@@ -71,7 +83,7 @@ const Signup = () => {
             <Input />
           </Form.Item>
           <Form.Item
-            name={['user', 'email']}
+            name='email'
             label="Email"
             rules={[
               {
@@ -83,7 +95,7 @@ const Signup = () => {
             <Input />
           </Form.Item>
           <Form.Item
-            name={['user', 'student_id']}
+            name='student_id'
             label="Student ID"
             rules={[
               {
@@ -109,7 +121,7 @@ const Signup = () => {
           </Form.Item>
 
           <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }} name="remember" valuePropName="checked">
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox name="remember">Remember me</Checkbox>
           </Form.Item>
 
           <Form.Item {...tailLayout}>

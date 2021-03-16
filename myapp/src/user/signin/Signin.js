@@ -1,4 +1,5 @@
 import { Form, Input, Button, Checkbox, Row, Col } from 'antd';
+import axios from 'axios';
 
 const layout = {
   labelCol: {
@@ -18,6 +19,17 @@ const tailLayout = {
 const Signin = () => {
   const onFinish = (values) => {
     console.log('Success:', values);
+
+    axios.post('http://localhost:3000/users/login', {
+      email: values.email,
+      password: values.password
+    })
+      .then((response) => {
+        console.log(response);
+
+      }, (error) => {
+        console.log(error);
+      });
   };
 
   const onFinishFailed = (errorInfo) => {
